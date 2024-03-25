@@ -1,8 +1,8 @@
-ARW File Processor
+# ARW File Processor
 
 This Python script automates the process of extracting embedded JPG images from ARW files, rotating them based on EXIF data, preserving the EXIF metadata, and saving them to a specified directory. It is designed to work with a batch of .arw files within a folder.
 
-Requirements
+## Requirements
 
 - Python 3.x
 - PIL (Pillow)
@@ -12,7 +12,7 @@ Ensure you have the required dependencies installed. You can install them using 
 
 pip install Pillow rawpy
 
-Usage
+## Usage
 
 Running the Script Directly
 
@@ -26,7 +26,7 @@ Replace path_to_your_folder with the actual path to your folder.
 
 Keeping the Terminal Window Open
 
-On Windows
+## On Windows
 
 If you're running the script from a file explorer and wish the command prompt window to remain open after the script execution, follow these steps:
 
@@ -41,16 +41,16 @@ Replace path\to\process_arw.py with the path to the script and path_to_your_fold
 
 3. Double-click the batch file to run your script. The command prompt window will remain open with a "Press any key to continue..." message after the script completes.
 
-On Unix/Linux/macOS
+## On Unix/Linux/macOS
 
 After running the script from the terminal, the window should remain open. If you're using a shortcut or script, you can append ; read -p "Press enter to continue" to the command:
 
 python path/to/process_arw.py path_to_your_folder; read -p "Press enter to continue"
 
-Contributing
+## Contributing
 
 Feel free to fork this repository and submit pull requests to contribute to the development of this script.
 
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
