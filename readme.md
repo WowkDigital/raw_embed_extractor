@@ -1,5 +1,7 @@
 # ARW File Processor
 
+[raw_embed_extractor_v1.py](https://github.com/WowkDigital/raw_embed_extractor/blob/main/raw_embed_extractor_v1.py)
+
 This Python script automates the process of extracting embedded JPG images from ARW files, rotating them based on EXIF data, preserving the EXIF metadata, and saving them to a specified directory. It is designed to work with a batch of .arw files within a folder.
 
 ## Requirements
