@@ -12,7 +12,7 @@ This Python script automates the process of extracting embedded JPG images from 
 
 Ensure you have the required dependencies installed. You can install them using pip:
 
-pip install Pillow rawpy
+`pip install Pillow rawpy`
 
 ## Usage
 
@@ -22,9 +22,9 @@ Running the Script Directly
 2. Navigate to the directory containing the script.
 3. Run the script with the path to the folder containing .arw files as an argument:
 
-python raw_embed_extractor_v1.py path_to_your_folder
+`python raw_embed_extractor_v1.py path_to_your_folder`
 
-Replace path_to_your_folder with the actual path to your folder.
+Replace `path_to_your_folder` with the actual path to your folder.
 
 Keeping the Terminal Window Open
 
