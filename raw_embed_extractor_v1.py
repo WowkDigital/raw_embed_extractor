@@ -6,10 +6,10 @@ from PIL import Image, ExifTags
 
 def rotate_image_based_on_exif(image):
     try:
+        exif = image.getexif()  # Changed from _getexif to getexif
         exif = {
-            ExifTags.TAGS[k]: v
-            for k, v in image._getexif().items()
-            if k in ExifTags.TAGS
+            ExifTags.TAGS.get(k, k): v
+            for k, v in exif.items()
         }
 
         orientation = exif.get('Orientation')
@@ -37,13 +37,15 @@ def process_image(raw_file_path, jpg_folder_path):
 
 def process_raw_folder(folder_path):
     jpg_folder_path = os.path.join(folder_path, 'jpg')
-    if os.path.exists(jpg_folder_path):
-        # Find a unique folder name if the default exists
+    create_folder = not os.path.exists(jpg_folder_path)
+    if not create_folder:
         suffix = 1
         while os.path.exists(f"{jpg_folder_path}_{suffix}"):
             suffix += 1
         jpg_folder_path = f"{jpg_folder_path}_{suffix}"
-    os.makedirs(jpg_folder_path)
+        create_folder = True
+    if create_folder:
+        os.makedirs(jpg_folder_path)
     
     for filename in os.listdir(folder_path):
         if filename.lower().endswith(('.arw', '.cr2')):
@@ -52,12 +54,7 @@ def process_raw_folder(folder_path):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: script.py <folder_path>")
-        print("The script converts ARW and CR2 raw images to JPG in a new directory within the specified folder path.")
-        print("If the 'jpg' folder exists, a new unique folder will be created to avoid overwriting existing files.")
         sys.exit(1)
     folder_path = sys.argv[1]
     process_raw_folder(folder_path)
-    if os.name == 'nt':
-        os.system("pause")
-    else:
-        input("Press enter to continue...")
+    input("Press enter to continue...")
